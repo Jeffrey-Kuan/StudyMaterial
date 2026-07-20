@@ -1,0 +1,292 @@
+<!DOCTYPE html> 
+<html lang='en' xml:lang='en'> 
+<head> <title></title> 
+<meta charset='utf-8' /> 
+<meta content='TeX4ht (https://tug.org/tex4ht/)' name='generator' /> 
+<meta content='width=device-width,initial-scale=1' name='viewport' /> 
+<link href='\aa:CssFile ' rel='stylesheet' type='text/css' /> 
+<meta content='sixDemo.tex' name='src' /> 
+<script>window.MathJax = { tex: { tags: "ams", }, loader: { load: ['a11y/assistive-mml'] }, options: { enableAssistiveMml: true }, }; </script> 
+<script async='async' id='MathJax-script' src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js' type='text/javascript'></script>  
+<meta content='' name='author' /> 
+<meta content='version 2.5.1' name='ximera' /> 
+<link href='https://ximera.osu.edu/public/stylesheets/standalone.css' media='screen' rel='stylesheet' /> 
+<script src='https://ximera.osu.edu/public/javascripts/standalone.min.js' type='text/javascript'></script> 
+</head><body> 
+<div class='preamble'>
+</div>
+<style> .activity-body pre { white-space: pre; background-color: lightgray; } .xmyoutube { aspect-ratio: 16/9; min-width: 75%; } .image-environment img { width: unset; } </style> 
+  
+<div class='abstract'>
+<!-- l. 24 --><p class='noindent'>Every collapsible construct, its edge cases, and its failure modes.</p> 
+</div>
+<div class='maketitle'></div>
+<!-- l. 36 --><p class='noindent'>A plain footnote <script type='text/javascript'> function footnotefun(btn, ID) { var x = document.getElementById(ID); var expanded = btn.getAttribute("aria-expanded") === "true"; btn.setAttribute("aria-expanded", expanded ? "false" : "true"); x.style.display = expanded ? "none" : "inline"; } </script>  <span style='position=relative; vertical-align=baseline;'> <button aria-controls='footnotei' aria-expanded='false' aria-label='Footnote 1' onclick='footnotefun(this, &quot;footnotei&quot;)' style='background:none!important; color:inherit; border:none; padding:0.25em!important; margin:-0.25em; font: inherit; cursor: pointer;'> <sup>[1] </sup></button>  <span id='footnotei' style='display:none; min-width:20em; position:relative; left:2px; padding:5px; word-wrap:break-word; z-index=9999; overflow=auto;'>  <span style='color:#4D00B2;'>(The simplest possible note.)</span></span></span>  mid-sentence.
+</p><!-- l. 38 --><p class='noindent'>Two footnotes <script type='text/javascript'> function footnotefun(btn, ID) { var x = document.getElementById(ID); var expanded = btn.getAttribute("aria-expanded") === "true"; btn.setAttribute("aria-expanded", expanded ? "false" : "true"); x.style.display = expanded ? "none" : "inline"; } </script>  <span style='position=relative; vertical-align=baseline;'> <button aria-controls='footnoteii' aria-expanded='false' aria-label='Footnote 2' onclick='footnotefun(this, &quot;footnoteii&quot;)' style='background:none!important; color:inherit; border:none; padding:0.25em!important; margin:-0.25em; font: inherit; cursor: pointer;'> <sup>[2] </sup></button>  <span id='footnoteii' style='display:none; min-width:20em; position:relative; left:2px; padding:5px; word-wrap:break-word; z-index=9999; overflow=auto;'>  <span style='color:#4D00B2;'>(First of two; its id uses roman numerals (footnoteii here).)</span></span></span>  in
+one sentence <script type='text/javascript'> function footnotefun(btn, ID) { var x = document.getElementById(ID); var expanded = btn.getAttribute("aria-expanded") === "true"; btn.setAttribute("aria-expanded", expanded ? "false" : "true"); x.style.display = expanded ? "none" : "inline"; } </script>  <span style='position=relative; vertical-align=baseline;'> <button aria-controls='footnoteiii' aria-expanded='false' aria-label='Footnote 3' onclick='footnotefun(this, &quot;footnoteiii&quot;)' style='background:none!important; color:inherit; border:none; padding:0.25em!important; margin:-0.25em; font: inherit; cursor: pointer;'> <sup>[3] </sup></button>  <span id='footnoteiii' style='display:none; min-width:20em; position:relative; left:2px; padding:5px; word-wrap:break-word; z-index=9999; overflow=auto;'>  <span style='color:#4D00B2;'>(Second of two — checks that the counter, ids, and aria-labels stay
+distinct.)</span></span></span>  to check numbering.
+</p><!-- l. 42 --><p class='noindent'>A footnote carrying math and bold <script type='text/javascript'> function footnotefun(btn, ID) { var x = document.getElementById(ID); var expanded = btn.getAttribute("aria-expanded") === "true"; btn.setAttribute("aria-expanded", expanded ? "false" : "true"); x.style.display = expanded ? "none" : "inline"; } </script>  <span style='position=relative; vertical-align=baseline;'> <button aria-controls='footnoteiv' aria-expanded='false' aria-label='Footnote 4' onclick='footnotefun(this, &quot;footnoteiv&quot;)' style='background:none!important; color:inherit; border:none; padding:0.25em!important; margin:-0.25em; font: inherit; cursor: pointer;'> <sup>[4] </sup></button>  <span id='footnoteiv' style='display:none; min-width:20em; position:relative; left:2px; padding:5px; word-wrap:break-word; z-index=9999; overflow=auto;'>  <span style='color:#4D00B2;'>(Weird case: <span class='mathjax-inline'>\(e^{i\pi }+1=0\)</span> and <strong>bold text</strong> inside
+the hidden span — inline markup must survive inside the disclosure.)</span></span></span>  in its
+body.
+</p><!-- l. 48 --><p class='noindent'> <script type='text/javascript'> function footnotefun(btn, ID) { var x = document.getElementById(ID); var expanded = btn.getAttribute("aria-expanded") === "true"; btn.setAttribute("aria-expanded", expanded ? "false" : "true"); x.style.display = expanded ? "none" : "inline"; } </script>  <span style='position=relative; vertical-align=baseline;'> <button aria-controls='footnotev' aria-expanded='false' aria-label='Footnote 5' onclick='footnotefun(this, &quot;footnotev&quot;)' style='background:none!important; color:inherit; border:none; padding:0.25em!important; margin:-0.25em; font: inherit; cursor: pointer;'> <sup>[5] </sup></button>  <span id='footnotev' style='display:none; min-width:20em; position:relative; left:2px; padding:5px; word-wrap:break-word; z-index=9999; overflow=auto;'>  <span style='color:#4D00B2;'>(A footnote opening a paragraph: vmode edge case.)</span></span></span>  A paragraph that began
+with a footnote.
+</p>
+<div class='theorem-like problem-environment' id='problem1'><section> 
+<h3>Theorem</h3><a id='x1-2r1'></a>A theorem before any sectioning command sits at h3. </section></div>
+
+<h3 class='sectionHead' id='everything-at-section-depth'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Everything at section depth</h3>
+<div class='theorem-like problem-environment' id='problem2'><section> 
+<h4>Theorem</h4><a id='x1-1001r2'></a><span class='theorem-like problem-environment'>Named After Nobody</span> A theorem under a TeXnical section: h4.
+</section></div>
+<div class='theorem-like problem-environment' id='problem3'><section> 
+<h4>Theorem</h4><a id='x1-1002r3'></a>Hints nest inside theorem bodies: <div class='accordion'> 
+<h5 class='accordion-header xmhint'><span style='position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;'>Hint</span></h5> 
+<div class='accordion-item xmhint-content' id='accordion-item4'> 
+EXPECT: this hint’s heading is h5
+(theorem at h4 stepped the offset). <div class='accordion'> 
+<h6 class='accordion-header xmhint'><span style='position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;'>Hint</span></h6> 
+<div class='accordion-item xmhint-content' id='accordion-item5'> 
+EXPECT: nested hint ladder (rare but real: 7
+uses in live courses) lands at h6.</div> 
+</div> 
+</div> 
+</div> 
+</section></div>
+
+<h4 class='subsectionHead' id='everything-at-subsection-depth'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Everything at subsection depth</h4>
+<div class='theorem-like problem-environment' id='problem6'><section> 
+<h5>Definition</h5><a id='x1-2001r4'></a>Theorem-like environments share one heading mechanism: h5 under a
+subsection. </section></div>
+
+<h5 class='subsubsectionHead' id='the-secnumdepth-trap'><a id='x1-3000'></a>The secnumdepth trap</h5>
+<div class='theorem-like problem-environment' id='problem7'><section> 
+<h6>Remark</h6><a id='x1-3001r5'></a>A remark under a subsubsection must be h6, not h5. </section></div>
+                                                                  
+
+                                                                  
+
+<h3 class='likesectionHead' id='starred-sections-also-count'><a id='x1-4000'></a>Starred sections also count</h3>
+<div class='theorem-like problem-environment' id='problem8'><section> 
+<h4>Observation</h4><a id='x1-4001r6'></a>An observation under a starred section: h4. </section></div>
+
+<h3 class='sectionHead' id='expandables'><span class='titlemark'>2   </span> <a id='x1-50002'></a>Expandables</h3>
+<div class='accordion'> 
+<h4 class='accordion-header mynote'>Custom Note</h4> 
+<div class='accordion-item mynote-content' id='accordion-item9'> 
+ A titled expandable with a CSS-class hook. </div> 
+</div> 
+
+<div class='accordion'> 
+<h4 class='accordion-header '>This is an expandable</h4> 
+<div class='accordion-item -content' id='accordion-item10'> 
+ The dominant real-world form: no class, no title. Everyone —
+screen reader or sighted — gets the default header text. </div> 
+</div> 
+
+<div class='accordion'> 
+<h4 class='accordion-header mynote'>Title with math <span class='mathjax-inline'>\(x^2\)</span> and <strong>bold</strong></h4> 
+<div class='accordion-item mynote-content' id='accordion-item11'> 
+ Titles are typeset, not plain text. </div> 
+</div> 
+
+<div class='accordion'> 
+<h4 class='accordion-header mynote'>Expandable containing a theorem</h4> 
+<div class='accordion-item mynote-content' id='accordion-item12'> 
+ <div class='theorem-like problem-environment' id='problem13'><section> 
+<h5>Theorem</h5><a id='x1-5001r7'></a>EXPECT h5: the expandable’s h4
+stepped the offset. <div class='accordion'> 
+<h6 class='accordion-header xmhint'><span style='position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;'>Hint</span></h6> 
+<div class='accordion-item xmhint-content' id='accordion-item14'> 
+EXPECT h6: two levels of enclosure under a section.</div> 
+</div> 
+</section></div>
+</div> 
+</div> 
+
+<div class='accordion'> <h4 class='accordion-header'>First panel, titled</h4><div class='accordion-item' id='accordion-item15'>  EXPECT: ¡h4 class=”accordion-header”¿First panel, titled¡/h4¿.
+</div> <h4 class='accordion-header'>This is an expandable</h4><div class='accordion-item' id='accordion-item16'> EXPECT: omitted title → heading shows the visible default
+text ”This is an expandable” instead of being an unnamed heading. </div> <h4 class='accordion-header'>Panel with a
+nested theorem</h4><div class='accordion-item' id='accordion-item17'>  <div class='theorem-like problem-environment' id='problem18'><section> 
+<h5>Fact</h5><a id='x1-5002r8'></a>EXPECT h5: panel heading h4 stepped the offset. </section></div> </div>
+</div>
+
+<h3 class='sectionHead' id='foldables'><span class='titlemark'>3   </span> <a id='x1-60003'></a>Foldables</h3>
+<details class='foldable-details' id='foldable19' open='open'> 
+ <summary class='unfoldable'>Recall the quotient rule.</summary> 
+ The full story: if <span class='mathjax-inline'>\(h=f/g\)</span> then <span class='mathjax-inline'>\(h'=\frac {f'g-fg'}{g^2}\)</span> wherever <span class='mathjax-inline'>\(g\neq 0\)</span>. </details>
+<details class='foldable-details' id='foldable20' open='open'> 
+ A foldable with no teaser at all. </details>
+<details class='foldable-details' id='foldable21' open='open'> 
+ <summary class='unfoldable'>First teaser wins.</summary> 
+ Body content in between. <span class='unfoldable'>Second teaser: demoted to a span,
+warned about in the log.</span> More body content. </details>
+<!-- l. 204 --><p class='noindent'>Loose <span class='unfoldable'>unfoldable text</span> in running prose is just a span.
+</p>
+<details class='foldable-details' id='foldable22' open='open'> 
+ <summary class='unfoldable'>Outer teaser.</summary> 
+ Outer body, then a nested fold: <details class='foldable-details' id='foldable23' open='open'> 
+ <summary class='unfoldable'>Inner teaser.</summary> 
+ Inner body. </details> <span class='unfoldable'>Late outer
+teaser: span + warning.</span> </details>
+
+                                                                  
+
+                                                                  
+<h3 class='sectionHead' id='adversarial-tex'><span class='titlemark'>4   </span> <a id='x1-70004'></a>Adversarial TeX</h3>
+<div class='accordion'> 
+<h4 class='accordion-header '>Deep nest, saturating</h4> 
+<div class='accordion-item -content' id='accordion-item24'> 
+ <div class='theorem-like problem-environment' id='problem25'><section> 
+<h5>Theorem</h5><a id='x1-7001r9'></a><div class='accordion'> 
+<h6 class='accordion-header xmhint'><span style='position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;'>Hint</span></h6> 
+<div class='accordion-item xmhint-content' id='accordion-item26'> 
+<div class='accordion'> 
+<h6 class='accordion-header xmhint'><span style='position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;'>Hint</span></h6> 
+<div class='accordion-item xmhint-content' id='accordion-item27'> 
+EXPECT: this heading is h6, not h7 — ceiling
+clamp.</div> 
+</div> 
+</div> 
+</div> 
+</section></div> </div> 
+</div> 
+
+<div class='theorem-like problem-environment' id='problem28'><section> 
+<h2>Theorem</h2><a id='x1-7002r10'></a>A theorem after sabotage: floor-clamped to h2. </section></div>
+
+
+
+<!-- ============ XIMERA PREVIEW SHIM (testing only, not production code) ============
+     Approximates the platform's collapse behavior so this standalone page is
+     interactively testable. Injected after the static build; a rebuild of
+     sixDemo.html drops it (re-apply with apply-shim.sh). -->
+<style>
+.xm-preview-note{background:#fff8e1;border:1px solid #e0c068;border-radius:4px;
+  padding:0.6em 0.9em;margin:1em 0;font-size:0.95em;}
+.accordion-header .xm-preview-toggle{display:block;width:100%;box-sizing:border-box;
+  text-align:left;background:#eef2f7;border:1px solid #b8c4d0;border-radius:4px;
+  padding:0.5em 0.75em;font:inherit;font-weight:600;cursor:pointer;}
+.accordion-header .xm-preview-toggle::before{content:"\25B8  " / "";}
+.accordion-header .xm-preview-toggle[aria-expanded="true"]::before{content:"\25BE  " / "";}
+.accordion-header .xm-preview-toggle:focus-visible,
+summary.unfoldable:focus-visible{outline:3px solid #1a66cc;outline-offset:2px;}
+.accordion-item{border:1px solid #d7dee6;border-radius:0 0 4px 4px;
+  padding:0.25em 0.75em;}
+details.foldable-details{border-left:3px solid #b8c4d0;padding-left:0.75em;margin:0.75em 0;}
+summary.unfoldable{cursor:pointer;font-weight:600;}
+.xm-lockinfo{font-weight:normal;font-style:italic;}
+.xm-sr-live{position:absolute;width:1px;height:1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;}
+[hidden]{display:none !important;}
+</style>
+<script>
+(function () {
+  'use strict';
+  var HINT_LOCK_SECONDS = 10; // production uses 30; shortened for testing
+
+  // Banner explaining the shim.
+  var note = document.createElement('p');
+  note.className = 'xm-preview-note';
+  note.textContent = 'Preview shim active: accordion/expandable/hint collapse '
+    + 'behavior below is a local approximation of the Ximera platform. As in '
+    + 'production, a hint-lock countdown runs from page load (here '
+    + HINT_LOCK_SECONDS + 's vs 30s in production) and is only shown if you '
+    + 'try a hint early. Foldables and footnotes are the real, '
+    + 'JavaScript-free implementations.';
+  document.body.insertBefore(note, document.body.firstChild);
+
+  // Polite live region for lock/unlock announcements.
+  var live = document.createElement('div');
+  live.setAttribute('aria-live', 'polite');
+  live.className = 'xm-sr-live';
+  document.body.appendChild(live);
+
+  // Countdown runs from page load, once, and never restarts — matching
+  // production's document-ready hintCountdown. The lock is invisible until a
+  // hint is attempted early (production shows the lock on the Reveal button
+  // only on click).
+  var remaining = HINT_LOCK_SECONDS;
+  var lockedButtons = [];
+  // While locked, hint panel content is DETACHED from the DOM (not merely
+  // hidden), so no assistive-tech or find-in-page route can read it early.
+  // (View Source still shows it — client-side gating is an honor system,
+  // in production too.)
+  var stashes = [];
+  var timer = setInterval(function () {
+    remaining -= 1;
+    lockedButtons.forEach(function (btn) {
+      var lock = btn.querySelector('.xm-lockinfo');
+      if (lock) lock.textContent = ' (locked, ' + remaining + 's)';
+    });
+    if (remaining <= 0) {
+      clearInterval(timer);
+      stashes.forEach(function (s) { s.panel.appendChild(s.fragment); });
+      stashes = [];
+      lockedButtons.forEach(function (btn) {
+        var lock = btn.querySelector('.xm-lockinfo');
+        if (lock) lock.remove();
+      });
+      if (lockedButtons.length) live.textContent = 'Hints are now unlocked.';
+      lockedButtons = [];
+    }
+  }, 1000);
+
+  // APG disclosure pattern: wrap each accordion header's content in a button
+  // controlling the adjacent panel. (On the real platform jQuery UI does the
+  // equivalent enhancement.)
+  document.querySelectorAll('.accordion-header').forEach(function (h, i) {
+    var panel = h.nextElementSibling;
+    if (!panel || !panel.classList.contains('accordion-item')) return;
+    if (!panel.id) panel.id = 'xm-panel-' + i;
+
+    var btn = document.createElement('button');
+    btn.className = 'xm-preview-toggle';
+    btn.type = 'button';
+    while (h.firstChild) btn.appendChild(h.firstChild);
+    h.appendChild(btn);
+
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', panel.id);
+    panel.hidden = true;
+
+    var isHint = h.classList.contains('xmhint');
+
+    // Locked hints: empty the panel into a detached fragment until unlock.
+    if (isHint && remaining > 0) {
+      var fragment = document.createDocumentFragment();
+      while (panel.firstChild) fragment.appendChild(panel.firstChild);
+      stashes.push({ panel: panel, fragment: fragment });
+    }
+
+    btn.addEventListener('click', function () {
+      // Early hint attempt: refuse, reveal the countdown on this button,
+      // and announce it — the timer itself has been running since load.
+      if (isHint && remaining > 0) {
+        if (!btn.querySelector('.xm-lockinfo')) {
+          var lock = document.createElement('span');
+          lock.className = 'xm-lockinfo';
+          lock.textContent = ' (locked, ' + remaining + 's)';
+          btn.appendChild(lock);
+          lockedButtons.push(btn);
+        }
+        live.textContent = 'Hint locked. ' + remaining + ' seconds remaining.';
+        return;
+      }
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      panel.hidden = expanded;
+    });
+  });
+}());
+</script>
+<!-- NOTE: MathJax itself is loaded by the page HEAD (ximera.cfg emits a CDN
+     loader into every build). Do NOT load or configure MathJax here — a
+     body-end window.MathJax assignment clobbers the initialized API.
+     apply-shim.sh instead patches the head config to enable assistive
+     MathML, so screen readers get structured math ("e to the i pi power")
+     rather than raw characters. -->
+<!-- ============ END XIMERA PREVIEW SHIM ============ -->
+
+</body> 
+ 
+</html>
