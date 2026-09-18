@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Baseline: \answer{} under plain MathJax 4</title>
+
+<!-- Plain MathJax 4 config. No macros, no texhtml, no packages beyond
+     the default. \answer is NOT defined here — this is the point:
+     see exactly what MathJax 4 does with it out of the box. -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']]
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" id="MathJax-script" async></script>
+
+<style>
+  body {
+    font-family: sans-serif;
+    max-width: 700px;
+    margin: 2rem auto;
+    line-height: 1.6;
+  }
+  .problem {
+    padding: 1rem 1.25rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+</style>
+</head>
+<body>
+
+<h1>Baseline: real Ximera \answer{} syntax, unmodified MathJax 4</h1>
+
+<div class="problem">
+  <p>\( |2-5| = \answer{3} \)</p>
+</div>
+
+<div class="problem">
+  <p>\[ x = \answer{100} \]</p>
+</div>
+
+<div class="problem">
+  <p>\( \text{Name} = \answer[format=string]{Xarlie} \)</p>
+</div>
+
+</body>
+</html>
