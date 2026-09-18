@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MathJax 4 + inline \answer{} (texhtml)</title>
+
+<!-- MathJax 4 config — must load BEFORE the MathJax script -->
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/texhtml']
+    },
+    tex: {
+      packages: {'[+]': ['texhtml']},
+      allowTexHTML: true,
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      macros: {
+        // \answer{id}{correctValue}
+        // Expands into an <input> plus a status span, both wrapped in
+        // <tex-html> so MathJax leaves the markup untouched and lays
+        // it out inline as part of the math run.
+        answer: [
+          '<tex-html><input type="text" id="#1" data-correct="#2" ' +
+          'size="6" inputmode="text" autocomplete="off" ' +
+          'aria-label="Answer" aria-describedby="#1-feedback" />' +
+          '<span id="#1-feedback" role="status" aria-live="polite" ' +
+          'class="answer-feedback"></span></tex-html>',
+          2
+        ]
+      }
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" id="MathJax-script" async></script>
+
+<style>
+  body {
+    font-family: sans-serif;
+    max-width: 700px;
+    margin: 2rem auto;
+    line-height: 1.6;
+  }
+  .problem {
+    padding: 1rem 1.25rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  input[type="text"][data-correct] {
+    font: inherit;
+    padding: 0.15rem 0.3rem;
+    border: 2px solid #888;
+    border-radius: 4px;
+  }
+  input[data-correct][aria-invalid="true"] {
+    border-color: #b00020;
+  }
+  input[data-correct][aria-invalid="false"] {
+    border-color: #2e7d32;
+  }
+  .answer-feedback {
+    display: inline-block;
+    margin-left: 0.4rem;
+    font-weight: bold;
+    font-size: 0.85em;
+    vertical-align: middle;
+  }
+  .answer-feedback.correct { color: #2e7d32; }
+  .answer-feedback.incorrect { color: #b00020; }
+</style>
+</head>
+<body>
+
+<h1>Inline answer boxes embedded in math (MathJax 4)</h1>
+
+<div class="problem">
+  <p>If \(x = 3\), then</p>
+  <p>\[ x^2 + 3x + 1 = \answer{q1}{19} \]</p>
+</div>
+
+<div class="problem">
+  <p>Simplify: \( \dfrac{x^2-1}{x-1} = \answer{q2}{x+1} \) &nbsp;(for \(x \ne 1\))</p>
+</div>
+
+<script>
+  // Event delegation: catch input on any answer box, even ones added
+  // dynamically or typeset later, without attaching listeners one by one.
+  document.addEventListener('input', function (e) {
+    if (!e.target.matches('input[data-correct]')) return;
+    checkAnswer(e.target);
+  });
+
+  function checkAnswer(input) {
+    const feedback = document.getElementById(input.id + '-feedback');
+    if (!feedback) return;
+
+    const val = input.value.trim();
+    const correct = input.dataset.correct.trim();
+
+    if (val === '') {
+      feedback.textContent = '';
+      feedback.className = 'answer-feedback';
+      input.removeAttribute('aria-invalid');
+      return;
+    }
+
+    if (val === correct) {
+      feedback.textContent = 'Correct!';
+      feedback.className = 'answer-feedback correct';
+      input.setAttribute('aria-invalid', 'false');
+    } else {
+      feedback.textContent = 'Not quite.';
+      feedback.className = 'answer-feedback incorrect';
+      input.setAttribute('aria-invalid', 'true');
+    }
+  }
+</script>
+
+</body>
+</html>
