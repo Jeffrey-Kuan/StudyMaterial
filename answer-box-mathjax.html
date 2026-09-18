@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Accessible Answer Box with MathJax</title>
+
+<!-- MathJax 4 config: must come BEFORE loading the MathJax script -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']]
+    }
+  };
+</script>
+<!-- MathJax 4 CDN (note: no /es5/ path, unlike v3) -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" id="MathJax-script" async></script>
+
+<style>
+  .answer-box {
+    font-family: sans-serif;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  input[type="text"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0.75rem;
+  }
+  input[aria-invalid="true"] {
+    border: 2px solid #b00020;
+  }
+  input[aria-invalid="false"] {
+    border: 2px solid #2e7d32;
+  }
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  output {
+    display: block;
+    margin-top: 0.75rem;
+    font-weight: bold;
+  }
+  output.correct {
+    color: #2e7d32;
+  }
+  output.incorrect {
+    color: #b00020;
+  }
+</style>
+</head>
+<body>
+
+<div class="answer-box">
+  <!-- The label itself contains LaTeX; MathJax will typeset it once the page loads -->
+  <label for="q1">What is \( \sqrt{16} \)?</label>
+  <input
+    type="text"
+    id="q1"
+    name="q1"
+    aria-describedby="q1-feedback"
+    autocomplete="off"
+  />
+  <button type="button" onclick="checkAnswer()">Check</button>
+
+  <!-- <output> is natively a status-role element; aria-live has no HTML equivalent -->
+  <output id="q1-feedback" for="q1" aria-live="polite"></output>
+</div>
+
+<script>
+function checkAnswer() {
+  const input = document.getElementById('q1');
+  const feedback = document.getElementById('q1-feedback');
+  const val = input.value.trim();
+
+  if (val === '4') {
+    feedback.textContent = 'Correct!';
+    feedback.className = 'correct';
+    input.setAttribute('aria-invalid', 'false');
+  } else {
+    feedback.textContent = 'Not quite — try again.';
+    feedback.className = 'incorrect';
+    input.setAttribute('aria-invalid', 'true');
+  }
+}
+</script>
+
+</body>
+</html>
